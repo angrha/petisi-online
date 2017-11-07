@@ -1,0 +1,19 @@
+{
+  "name": "petisi-online",
+  "version": "0.1.0",
+  "description": "Pair Project - Phase 1",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomybudiman/petisi-online.git"
+  },
+  "author": "Tomy & Aang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tomybudiman/petisi-online/issues"
+  },
+  "homepage": "https://github.com/tomybudiman/petisi-online#readme"
+}
