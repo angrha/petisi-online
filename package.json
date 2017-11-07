@@ -4,7 +4,7 @@
   "description": "Pair Project - Phase 1",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon app.js"
+    "watch": "nodemon app.js"
   },
   "repository": {
     "type": "git",
