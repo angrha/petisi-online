@@ -3,9 +3,33 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Petisi Online</title>
+    <title>Daftar</title>
 </head>
 <body>
+    <form action="/register" method="post">
+        <table border="1">
+            <tr>
+                <td>Username</td>
+                <td><input type="text" name="username" placeholder="Type your username"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" name="email" placeholder="Type your email address"></td>
+            </tr>
+            <tr>
+                <td rowspan="2">Password</td>
+                <td><input type="password" name="password" placeholder="Type your password"></td>
+            </tr>
+            <tr>
+                <td><input type="password" name="password" placeholder="Retype your password"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="SignUp">
+                </td>
+            </tr>
+        </table>
+    </form>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </html>
