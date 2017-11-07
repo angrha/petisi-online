@@ -1,0 +1,11 @@
+Petisi Online
+
+1. Halaman dashboard (List petisi publik) dapat di akses oleh semua orang baik yang sudah login / memiliki account ataupun yang belum memiliki account
+
+2. Untuk melakukan "sign" atau memberikan reaksi user diwajibkan untuk memiliki account / login pada website
+
+3. Pada halaman dashboard user loggedin dapat melakukan "sign" atau memberikan reaksi dislike terhadap petisi tersebut.
+
+4. Pada tiap petisi akan ada informasi jumlah orang yang telah melakukan "sign" atau jumlah orang yang memberikan reaksi dislike terhadap petisi tersebut
+
+5. User juga dapat mengedit dapat mengedit data diri mereka pada halaman "profile/edit".
