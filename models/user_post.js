@@ -5,12 +5,10 @@ module.exports = (sequelize, DataTypes) => {
     PostId: DataTypes.INTEGER,
     status: DataTypes.BOOLEAN,
     comment: DataTypes.TEXT
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
   });
+  User_Post.associate=function(models){
+      User_Post.belongsTo(models.Post);
+      User_Post.belongsTo(models.User);
+  }
   return User_Post;
 };

@@ -5,7 +5,7 @@ const app=express();
 // Settings
 app.set("views","./views");
 app.set("view engine","ejs");
-app.use(express.static("view"));
+app.use(express.static("views"));
 app.use(parser.urlencoded({extended:false}));
 app.use(parser.json());
 

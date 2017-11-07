@@ -8,14 +8,24 @@
 </head>
 <body>
     <section class="content">
-        <div class="create-post">
-            <form action="/dashboard/post" method="post">
-                <input type="hidden" name="userId" value="1">
-                <input type="text" name="title" class="content-title">
-                <textarea name="content"></textarea>
-                <input type="submit" value="Post">
-            </form>
-        </div>
+        <form action="/dashboard/post" method="post" class="wrapper">
+            <input type="hidden" name="userId" value="1">
+            <input type="text" name="title" class="content-title" placeholder="Type your title name">
+            <textarea name="content" placeholder="Just type you want to say"></textarea>
+            <input type="submit" value="Post">
+        </form>
+        <section class="wrapper">
+            <div class="">
+            <%listPost.map((value)=>{%>
+            <%})%>
+            </div>
+            <%if(button){%>
+                <a href="/dashboard/more">
+                    <button type="button" id="load-more">Load More</button>
+                </a>
+            <%}%>
+        </section>
     </section>
 </body>
+</script>
 </html>
