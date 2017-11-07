@@ -1,6 +1,8 @@
 const parser=require("body-parser");
 const express=require("express");
 const app=express();
+const session = require('express-session')
+const bcrypt = require('bcrypt');
 
 // Settings
 app.set("views","./views");
