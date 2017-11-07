@@ -3,9 +3,9 @@ const express=require("express");
 const app=express();
 
 // Settings
-app.set("views","./view");
+app.set("views","./views");
 app.set("view engine","ejs");
-app.use(express.static("public"));
+app.use(express.static("view"));
 app.use(parser.urlencoded({extended:false}));
 app.use(parser.json());
 
