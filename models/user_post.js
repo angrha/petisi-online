@@ -3,8 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   var User_Post = sequelize.define('User_Post', {
     UserId: DataTypes.INTEGER,
     PostId: DataTypes.INTEGER,
-    status: DataTypes.BOOLEAN,
-    comment: DataTypes.TEXT
+    status: DataTypes.BOOLEAN
   });
   User_Post.associate=function(models){
       User_Post.belongsTo(models.Post);

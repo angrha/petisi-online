@@ -1,8 +1,8 @@
+const session=require("express-session");
 const parser=require("body-parser");
 const express=require("express");
+const bcrypt=require("bcrypt");
 const app=express();
-const session = require('express-session')
-const bcrypt = require('bcrypt');
 
 // Settings
 app.set("views","./views");
@@ -11,8 +11,8 @@ app.use(express.static("views"));
 app.use(parser.urlencoded({extended:false}));
 app.use(parser.json());
 app.use(session({
-  secret: 'pairproject'
-}))
+    secret:"pairproject"
+}));
 
 // Routing starts from here
 const index=require("./router/index");
@@ -24,8 +24,11 @@ app.use("/register",register);
 const dashboard=require("./router/dashboard");
 app.use("/dashboard",dashboard);
 
-const login = require('./router/login');
-app.use('/login', login);
+const login=require("./router/login");
+app.use("/login",login);
+
+const profile=require("./router/profile");
+app.use("/profile",profile);
 
 // Listen port
 app.listen(3000,()=>{

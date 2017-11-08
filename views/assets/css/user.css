@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400");
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  min-width: 900px;
+  min-height: 500px;
+  background-color: #F1F1F1; }
+
+.signup-wrapper {
+  width: 450px;
+  padding: 20px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: white;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1); }
+  .signup-wrapper td {
+    font-size: 20px;
+    font-family: "Roboto",sans-serif; }
+  .signup-wrapper input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    font-size: 18px;
+    box-sizing: border-box;
+    font-family: "Roboto",sans-serif; }
+  .signup-wrapper input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    font-size: 18px;
+    box-sizing: border-box;
+    font-family: "Roboto",sans-serif; }
+  .signup-wrapper input[type="submit"] {
+    width: 100px;
+    height: 40px;
+    outline: none;
+    font-size: 20px;
+    font-family: "Roboto",sans-serif; }

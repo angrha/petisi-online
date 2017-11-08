@@ -6,6 +6,14 @@ let offsetStart=0;
 let jumlahTampil=0;
 let loadMore=true;
 
+const ceklogin=(req,res,next)=>{
+    if(req.session.loggedIn){
+        next();
+    }else{
+        res.redirect("/login");
+    }
+}
+
 // Halaman awal dashboard
 router.get("/",(req,res)=>{
     offsetStart=0;
@@ -17,7 +25,31 @@ router.get("/",(req,res)=>{
         jumlahTampil+=rows.length;
         Model.Post.count().then((count)=>{
             count <= jumlahTampil ? loadMore=false : loadMore=true;
-            res.render("dashboard",{listPost:rows,button:loadMore});
+            const withCounter=rows.map((value)=>{
+                const countLikeDislike=value.getUsers().then((users)=>{
+                    let like=0;
+                    let dislike=0;
+                    users.map((user)=>{
+                        if(user.User_Post.status){
+                            like++;
+                        }else{
+                            dislike++;
+                        }
+                    });
+                    return {
+                        like:like,
+                        dislike:dislike,
+                        title:value.title,
+                        content:value.content,
+                        id:value.id
+                    }
+                });
+                return countLikeDislike;
+            });
+            Promise.all(withCounter).then((value)=>{
+                console.log(value);
+                res.render("dashboard",{listPost:value,button:loadMore});
+            });
         });
     }).catch((err)=>{
         res.send(err);
@@ -52,6 +84,25 @@ router.post("/post",(req,res)=>{
     };
     Model.Post.create(susun).then((stats)=>{
         res.redirect("/dashboard");
+    }).catch((err)=>{
+        res.send(err);
+    });
+});
+
+// Halaman detail post
+router.get("/post/:id",(req,res)=>{
+    Model.Post.findById(req.params.id).then((data)=>{
+        data.getUsers().then((users)=>{
+            let like=0;
+            let dislike=0;
+            users.map((value)=>{
+                value.User_Post.status ? like++ : dislike++;
+            });
+            Model.User.findById(data.UserId).then((user)=>{
+                console.log(data.UserId);
+                res.render("post",{data:data,like:like,dislike:dislike});
+            });
+        });
     }).catch((err)=>{
         res.send(err);
     });

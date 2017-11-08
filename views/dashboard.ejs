@@ -10,18 +10,37 @@
     <section class="content">
         <form action="/dashboard/post" method="post" class="wrapper">
             <input type="hidden" name="userId" value="1">
-            <input type="text" name="title" class="content-title" placeholder="Type your title name">
-            <textarea name="content" placeholder="Just type you want to say"></textarea>
+            <input type="text" name="title" class="content-title" placeholder="Type your title name" required>
+            <textarea name="content" placeholder="Just type you want to say" required></textarea>
             <input type="submit" value="Post">
         </form>
         <section class="wrapper">
-            <div class="">
+            <div class="content-list">
             <%listPost.map((value)=>{%>
+                <div class="each">
+                    <span class="title">
+                        <a href="/dashboard/post/<%=value.id%>"><%=value.title%></a>
+                    </span>
+                    <hr>
+                    <%if(value.content.length > 300){%>
+                        <span class="preview"><%=value.content.substring(0,300)%>...</span>
+                    <%}else{%>
+                        <span class="preview"><%=value.content%></span>
+                    <%}%>
+                    <ul class="reaction">
+                        <li>
+                            <div class="happy" title="Happy"><%=value.like%></div>
+                        </li>
+                        <li>
+                            <div class="unhappy" title="Unhappy"><%=value.dislike%></div>
+                        </li>
+                    </ul>
+                </div>
             <%})%>
             </div>
             <%if(button){%>
                 <a href="/dashboard/more">
-                    <button type="button" id="load-more">Load More</button>
+                    <input type="button" value="Load More">
                 </a>
             <%}%>
         </section>

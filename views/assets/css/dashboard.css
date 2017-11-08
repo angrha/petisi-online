@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:300");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400");
 html, body {
   margin: 0;
   width: 100%;
@@ -14,26 +14,40 @@ html, body {
   overflow: hidden;
   margin-top: 25px;
   border-radius: 5px;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   background-color: white;
+  -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1); }
   .wrapper input[type="text"] {
     width: 100%;
     outline: none;
     padding: 10px;
     font-size: 25px;
+    font-weight: 300;
     margin-bottom: 15px;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     font-family: "Roboto",sans-serif; }
   .wrapper input[type="submit"] {
+    border: none;
+    color: white;
     height: 40px;
     float: right;
     outline: none;
     font-size: 20px;
     cursor: pointer;
-    padding-left: 20px;
-    padding-right: 20px;
-    font-family: "Roboto",sans-serif; }
+    font-weight: 300;
+    border-radius: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-family: "Roboto",sans-serif;
+    background-color: #3e9cdf;
+    border-bottom: 3px solid #378ecc; }
+  .wrapper input[type="submit"]:active {
+    border-bottom: 2px solid #378ecc;
+    -webkit-transform: translateY(1px);
+    transform: translateY(1px); }
   .wrapper textarea {
     width: 100%;
     resize: none;
@@ -42,6 +56,69 @@ html, body {
     height: 150px;
     display: block;
     font-size: 20px;
+    font-weight: 300;
     margin-bottom: 15px;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     font-family: "Roboto",sans-serif; }
+  .wrapper input[type="button"] {
+    border: none;
+    color: white;
+    height: 40px;
+    outline: none;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 300;
+    border-radius: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: #3e9cdf;
+    border-bottom: 3px solid #378ecc; }
+  .wrapper input[type="button"]:active {
+    border-bottom: 2px solid #378ecc;
+    -webkit-transform: translateY(1px);
+    transform: translateY(1px); }
+  .wrapper .content-list .each {
+    margin-bottom: 25px; }
+    .wrapper .content-list .each a {
+      color: black;
+      text-decoration: none; }
+    .wrapper .content-list .each span {
+      display: block; }
+    .wrapper .content-list .each hr {
+      height: 2px;
+      border: none;
+      background-color: #c8c8c8; }
+    .wrapper .content-list .each .title {
+      font-size: 35px;
+      font-weight: 400;
+      font-family: "Roboto",sans-serif; }
+    .wrapper .content-list .each .preview {
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 40px;
+      font-family: "Roboto",sans-serif; }
+    .wrapper .content-list .each .reaction {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      margin-top: 10px; }
+      .wrapper .content-list .each .reaction li {
+        float: left;
+        list-style: none;
+        margin-right: 10px; }
+      .wrapper .content-list .each .reaction div {
+        width: 25px;
+        height: 25px;
+        padding-top: 10px;
+        padding-left: 45px;
+        border-radius: 5px;
+        background-size: 35%;
+        background-repeat: no-repeat;
+        font-family: "Roboto",sans-serif;
+        background-position: left 10px center;
+        background-color: #f0f0f0; }
+      .wrapper .content-list .each .reaction .happy {
+        background-image: url("../media/happy.png"); }
+      .wrapper .content-list .each .reaction .unhappy {
+        background-image: url("../media/mad.png"); }
