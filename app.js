@@ -11,7 +11,7 @@ app.use(express.static("view"));
 app.use(parser.urlencoded({extended:false}));
 app.use(parser.json());
 app.use(session({
-  secret: 'pairproject'
+    secret: 'pairproject'
 }))
 
 // Routing starts from here
@@ -26,6 +26,9 @@ app.use("/dashboard",dashboard);
 
 const login = require('./router/login');
 app.use('/login', login);
+
+const profile = require('./router/profile');
+app.use('/profile', profile);
 
 // Listen port
 app.listen(3000,()=>{
