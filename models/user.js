@@ -1,5 +1,4 @@
-'use strict';
-const bcrypt = require('bcrypt');
+const bcrypt=require("bcrypt");
 
 module.exports = (sequelize, DataTypes) => {
     var User = sequelize.define('User', {
@@ -16,11 +15,11 @@ module.exports = (sequelize, DataTypes) => {
         User.hasMany(models.User_Post);
         User.belongsToMany(models.Post,{through:models.User_Post});
     }
-    User.beforeCreate((user, options) => {
-        const saltRounds = 10;
-        const myPlaintextPassword = user.password;
-        return bcrypt.hash(myPlaintextPassword, saltRounds).then(function(hash){
-            user.password = hash
+    User.beforeCreate((user)=>{
+        const saltRounds=10;
+        const myPlaintextPassword=user.password;
+        return bcrypt.hash(myPlaintextPassword,saltRounds).then((hash)=>{
+            user.password=hash;
         });
     });
     return User;

@@ -1,0 +1,28 @@
+<div class="navbar">
+    <span class="title"><%=title%></span>
+    <input type="button" class="dropdown-button" id="toggle">
+    <ul class="dropdown" style="display:none;">
+        <li>
+            <a href="/dashboard">Dashboard</a>
+        </li>
+        <li>
+            <a href="/profile">Profile</a>
+        </li>
+        <li>
+            <a href="/logout">Logout</a>
+        </li>
+    </ul>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+let dropdown=true;
+$("#toggle").on("click",()=>{
+    if(dropdown){
+        $(".dropdown").slideDown(500);
+        dropdown=false;
+    }else{
+        $(".dropdown").slideUp(500);
+        dropdown=true;
+    }
+});
+</script>

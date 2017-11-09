@@ -7,9 +7,10 @@
     <title>Dashboard</title>
 </head>
 <body>
+    <%-include("./partials/navbar",{title:"Petisi Online"})%>
     <section class="content">
         <form action="/dashboard/post" method="post" class="wrapper">
-            <input type="hidden" name="userId" value="1">
+            <input type="hidden" name="userId" value="<%=userId%>">
             <input type="text" name="title" class="content-title" placeholder="Type your title name" required>
             <textarea name="content" placeholder="Just type you want to say" required></textarea>
             <input type="submit" value="Post">

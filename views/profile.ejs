@@ -3,8 +3,92 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title></title>
+    <link rel="stylesheet" href="/assets/css/profile.css">
+    <title>Profile <%=user.username%></title>
 </head>
 <body>
+    <%-include("./partials/navbar",{title:"Petisi Online"})%>
+    <form action="/profile/edit/<%=user.id%>" method="post">
+        <table class="main" border="0">
+            <tr>
+                <td width="50%"><span>Username</span></td>
+                <td width="50%"><span>Email</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="username" value="<%=user.username%>" title="Username cannot be change!" readonly>
+                </td>
+                <td><input type="text" name="email" value="<%=user.email%>"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><span>Password</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="password" name="password" placeholder="Please type your password">
+                </td>
+                <td>
+                    <input type="password" name="password_retype" placeholder="Please retype your password">
+                </td>
+            </tr>
+            <tr>
+                <td><span>First Name</span></td>
+                <td><span>Last Name</span></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="first_name" value="<%=user.first_name%>"></td>
+                <td><input type="text" name="last_name" value="<%=user.last_name%>"></td>
+            </tr>
+            <tr>
+                <td><span>Address</span></td>
+                <td><span>Gender</span></td>
+            </tr>
+            <tr>
+                <td rowspan="2">
+                    <textarea name="address" placeholder="Please type your address"><%=user.address%></textarea>
+                </td>
+                <td>
+                    <select class="select" name="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="others">Others</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Update"></td>
+            </tr>
+        </table>
+    </form>
+    <div class="post-list">
+        <div class="header">
+            <span>Post List</span>
+        </div>
+        <ul class="content">
+            <%if(posts.length === 0){%>
+                <li><span class="empty">Empty</span></li>
+            <%}else{
+                posts.map((value)=>{%>
+                <li>
+                    <span class="title">
+                        <a href="/dashboard/post/<%=value.id%>"><%=value.title%></a>
+                    </span>
+                    <hr>
+                    <%if(value.content.length > 300){%>
+                        <span class="preview"><%=value.content.substring(0,300)%>...</span>
+                    <%}else{%>
+                        <span class="preview"><%=value.content%></span>
+                    <%}%>
+                    <a href="/dashboard/post/delete/<%=value.id%>">
+                        <button type="button">Delete</button>
+                    </a>
+                    <a href="/dashboard/post/edit/<%=value.id%>">
+                        <button type="button">Edit</button>
+                    </a>
+                </li>
+                <%})
+            }%>
+        </ul>
+    </div>
 </body>
 </html>
