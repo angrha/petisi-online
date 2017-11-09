@@ -35,6 +35,9 @@ app.get("/logout",(req,res)=>{
 });
 
 // Listen port
-app.listen(process.env.PORT || 3000,()=>{
+app.listen(3000,()=>{
     console.log("Listen to me now! I'm working on port 3000!");
 });
+// app.listen(process.env.PORT || "3000",()=>{
+//     console.log("Listen to me now! I'm working on port 3000!");
+// });

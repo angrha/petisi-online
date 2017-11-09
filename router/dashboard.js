@@ -20,6 +20,7 @@ router.get("/",checklogin,(req,res)=>{
     offsetStart=0;
     jumlahTampil=0;
     Model.Post.findAll({
+        order:[["id","DESC"]],
         offset:offsetStart,
         limit:perPage
     }).then((rows)=>{

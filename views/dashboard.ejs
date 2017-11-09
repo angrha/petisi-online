@@ -20,7 +20,7 @@
             <%listPost.map((value)=>{%>
                 <div class="each">
                     <span class="title">
-                        <a href="/dashboard/post/<%=value.id%>"><%=value.title%></a>
+                        <a href="/dashboard/post/<%=value.id%>" title="<%=value.title%>"><%=value.title%></a>
                     </span>
                     <hr>
                     <%if(value.content.length > 300){%>
@@ -30,10 +30,14 @@
                     <%}%>
                     <ul class="reaction">
                         <li>
-                            <div class="happy" title="Happy"><%=value.like%></div>
+                            <a href="/dashboard/post/<%=value.id%>">
+                                <div class="happy" title="<%=value.like%> orang setuju dengan petisi ini"><%=value.like%></div>
+                            </a>
                         </li>
                         <li>
-                            <div class="unhappy" title="Unhappy"><%=value.dislike%></div>
+                            <a href="/dashboard/post/<%=value.id%>">
+                                <div class="unhappy" title="<%=value.dislike%> orang tidak setuju dengan petisi ini"><%=value.dislike%></div>
+                            </a>
                         </li>
                     </ul>
                 </div>

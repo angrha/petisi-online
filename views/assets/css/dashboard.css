@@ -84,9 +84,10 @@ html, body {
   overflow: hidden;
   margin-top: 25px;
   border-radius: 5px;
-  -webkit-box-sizing: border-box;
+  margin-bottom: 50px;
   box-sizing: border-box;
   background-color: white;
+  -webkit-box-sizing: border-box;
   -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1); }
   .wrapper input[type="text"] {

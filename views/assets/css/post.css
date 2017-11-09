@@ -77,20 +77,21 @@ html, body {
       text-decoration: none;
       font-family: "Roboto",sans-serif; }
 
-.show .header .title {
-  color: #555;
-  display: block;
-  font-size: 40px;
-  font-weight: 400;
-  margin-top: 20px;
-  text-align: center;
-  margin-bottom: 20px;
-  font-family: "Roboto",sans-serif; }
 .show .header hr {
   margin: 0;
   height: 2px;
   border: none;
   background-color: #c8c8c8; }
+.show .header .title {
+  color: #555;
+  display: block;
+  font-size: 40px;
+  font-weight: 400;
+  padding-top: 25px;
+  text-align: center;
+  padding-bottom: 25px;
+  background-color: white;
+  font-family: "Roboto",sans-serif; }
 .show .content {
   margin: auto;
   width: 700px;
@@ -104,7 +105,8 @@ html, body {
   .show .content .action {
     margin: 0;
     padding: 0;
-    overflow: hidden; }
+    overflow: hidden;
+    margin-top: 10px; }
     .show .content .action li {
       float: left;
       list-style: none;

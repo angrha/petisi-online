@@ -48,11 +48,23 @@
                     <textarea name="address" placeholder="Please type your address"><%=user.address%></textarea>
                 </td>
                 <td>
-                    <select class="select" name="gender">
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="others">Others</option>
-                    </select>
+                    <%if(user.gender == "" || user.gender == null){%>
+                        <select class="select" name="gender">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="others">Others</option>
+                        </select>
+                    <%}else{%>
+                        <select class="select" name="gender" disabled>
+                            <%if(user.gender == "male"){%>
+                                <option value="male">Male</option>
+                            <%}else if(user.gender == "female"){%>
+                                <option value="female">Female</option>
+                            <%}else{%>
+                                <option value="others">Others</option>
+                            <%}%>
+                        </select>
+                    <%}%>
                 </td>
             </tr>
             <tr>
