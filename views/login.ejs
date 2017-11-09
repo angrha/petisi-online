@@ -3,19 +3,30 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="/assets/css/user.css">
     <title>Petisi Online</title>
 </head>
 <body>
-  <form action="/login" method="POST">
-    <input type="text" name="username" placeholder="UserName"/>
-    <input type="password" name="password" placeholder="Password"/>
-    <input type="submit" value="LOGIN"/>
-  </form>
+    <%if(error){%>
+        <div class="error">
+            <span><%=msg%></span>
+        </div>
+    <%}%>
+    <form action="/login" method="POST">
+        <div class="wrapper">
+            <div class="icon"></div>
+            <div class="each">
+                <span>Username</span>
+                <input type="text" name="username" placeholder="Type your username" required>
+            </div>
+            <div class="each">
+                <span>Password</span>
+                <input type="password" name="password" placeholder="Type your password" required>
+            </div>
+            <div class="each">
+                <input type="submit" value="SignIn">
+            </div>
+        </div>
+    </form>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
-    <% if(error){ %>
-      alert('Username atau Password salah')
-    <% } %>
-</script>
 </html>

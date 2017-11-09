@@ -1,7 +1,6 @@
 const session=require("express-session");
 const parser=require("body-parser");
 const express=require("express");
-const bcrypt=require("bcrypt");
 const app=express();
 
 // Settings
@@ -29,6 +28,11 @@ app.use("/login",login);
 
 const profile=require("./router/profile");
 app.use("/profile",profile);
+
+app.get("/logout",(req,res)=>{
+    req.session.loggedIn=false;
+    res.redirect("/");
+});
 
 // Listen port
 app.listen(3000,()=>{

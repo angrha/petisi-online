@@ -7,7 +7,8 @@
     <title><%=data.title%></title>
 </head>
 <body>
-    <section>
+    <%-include("./partials/navbar",{title:"Petisi Online"})%>
+    <section class="show">
         <div class="header">
             <span class="title"><%=data.title%></span>
             <hr>
@@ -15,8 +16,16 @@
         <div class="content">
             <span class="fullpage"><%=data.content%></span>
             <ul class="action">
-                <li></li>
-                <li></li>
+                <li>
+                    <a href="/dashboard/post/like/<%=data.id%>/<%=activeUser%>">
+                        <div class="happy"><%=like%></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/dashboard/post/dislike/<%=data.id%>/<%=activeUser%>">
+                        <div class="unhappy"><%=dislike%></div>
+                    </a>
+                </li>
             </ul>
         </div>
     </section>

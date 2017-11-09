@@ -3,16 +3,24 @@ const express=require("express");
 const router=express.Router();
 
 router.get("/",(req,res)=>{
-    res.render("register");
+    res.render("register",{error:false});
 });
 
 router.post('/',(req,res)=>{
     if(req.body.password === req.body.password_retype){
-        Model.User.create(req.body).then((result)=>{
-            res.redirect("/dashboard");
+        Model.User.count({where:{username:req.body.username}}).then((countUser)=>{
+            if(countUser === 0){
+                Model.User.create(req.body).then((result)=>{
+                    res.redirect("/dashboard");
+                }).catch((err)=>{
+                    res.send(err);
+                });
+            }else{
+                res.render("register",{error:true,msg:"Username telah digunakan"});
+            }
         });
     }else{
-        res.send("please write your password correctly");
+        res.render("register",{error:true,msg:"Pastikan username dan password yang kamu masukan benar"});
     }
 });
 

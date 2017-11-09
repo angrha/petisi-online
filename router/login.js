@@ -1,39 +1,43 @@
-const express = require("express");
-const router  = express.Router();
-const bcrypt  = require('bcrypt');
-const Models  = require('../models')
+const Model=require("../models");
+const express=require("express");
+const bcrypt=require("bcrypt");
+const router=express.Router();
 
-router.get('/', (req, res) => {
-    res.render("login", {error: false})
-})
+// Check Login State
+const checkLogin=(req,res,next)=>{
+    if(req.session.loggedIn){
+        res.redirect("/profile");
+    }
+}
 
-router.post('/', (req, res) => {
-    Models.User.findOne({
-        where: {
-            username: req.body.username
+// Halaman login
+router.get("/",(req,res)=>{
+    res.render("login",{error:false});
+});
+
+// Action login
+router.post("/",(req,res)=>{
+    Model.User.findOne({
+        where:{
+            username:req.body.username
         }
-    }).then(function(user){
-        if(user){
-            bcrypt.compare(req.body.password, user.password).then((result) => {
-                if(result){
-                    req.session.loggedIn = true;
-                    req.session.username = user.username
-                    let id = user.id
-                    if(user.first_name == null || user.last_name == null || user.gender == null || user.address == null){
-                        res.redirect(`/profile/edit/${id}`)
-                    }else{
-                        res.redirect('/dashboard')
-                    }
-                }else{
-                    res.render('login',{error : true})
+    }).then((user)=>{
+        if(user){ // Jika username ditemukan
+            bcrypt.compare(req.body.password,user.password).then((result)=>{
+                if(result){ // Jika password benar
+                    req.session.loggedIn=true;
+                    req.session.userId=user.id;
+                    res.redirect("/dashboard");
+                }else{ // Jika password salah
+                    res.render("login",{error:true,msg:"Pastikan username dan password yang kamu masukan benar"});
                 }
-            })
+            });
         }else{
-            res.render('login')
+            res.render("login",{error:true,msg:"Pastikan username dan password yang kamu masukan benar"});
         }
     }).catch((err) => {
-        console.log(err);
+        res.send(err);
     });
-})
+});
 
-module.exports = router
+module.exports=router

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="/assets/css/post.css">
+    <title></title>
+</head>
+<body>
+    <%-include("./partials/navbar",{title:"Petisi Online"})%>
+    <form action="/dashboard/post/edit/<%=data.id%>" method="post">
+        <input type="hidden" name="id" value="<%=data.id%>">
+        <section class="editor">
+            <div class="header">
+                <span>Judul Petisi</span>
+                <input type="text" name="title" value="<%=data.title%>">
+            </div>
+            <div class="content">
+                <span>Konten Petisi</span>
+                <textarea name="content"><%=data.content%></textarea>
+            </div>
+            <ul class="action">
+                <li>
+                    <input type="submit" value="Simpan">
+                </li>
+                <li>
+                    <div class="block">
+                        <a href="/dashboard/post/delete/<%=data.id%>">Hapus Post</a>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </form>
+</body>
+</html>
